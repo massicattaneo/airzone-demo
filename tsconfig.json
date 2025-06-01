@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@az/assets": ["libs/assets/index.ts"],
+      "@az/common/json-db": ["libs/common/json-db/index.ts"],
+      "@az/common/integration-tests": ["libs/common/integration-tests/index.ts"],
+      "@az/common/msw": ["libs/common/msw/index.ts"],
+      "@az/common/trpc": ["libs/common/trpc/index.ts"],
+      "@az/common/server-procedures": ["libs/common/server-procedures/index.ts"],
+      "@az/react/components": ["libs/react/components/index.ts"],
+      "@az/react/tanstack-api": ["libs/react/tanstack-api/index.ts"]
+    }
+  },
+  "include": ["src", "libs", "playwright.config.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

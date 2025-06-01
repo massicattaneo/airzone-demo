@@ -1,0 +1,1 @@
+export { trpcHttpAdapter } from "./trpcHttpAdapter"
