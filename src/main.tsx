@@ -10,20 +10,23 @@ import { routes } from "./utils/routes"
 
 const mswWorker = setupWorker(...mswTrpcHandlers)
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <AppLayout />,
-    children: routes,
-  },
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <AppLayout />,
+      children: routes,
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+)
 
 mswWorker
   .start({
     onUnhandledRequest: "bypass",
     quiet: true,
     serviceWorker: {
-      url: `/mockServiceWorker.js`,
+      url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
     },
   })
   .then(() => {

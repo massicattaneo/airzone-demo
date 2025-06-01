@@ -1,5 +1,7 @@
 <img src="./libs/assets/svg/airzone.svg" alt="Logo" width="200" />
 
+Demo: [https://massicattaneo.github.io/airzone-demo/](https://massicattaneo.github.io/airzone-demo/)
+
 **NOTE ON THE PROJECT:**
 
 This implementation focuses on code architecture, scalability, and folder structure to ensure long-term maintainability and reusability of the component across different contexts.
@@ -40,7 +42,7 @@ This implementation focuses on code architecture, scalability, and folder struct
 
 ### Build
 
-- Run `yarn build:web`
+- Run `yarn build`
 
 ## DESKTOP APP
 
