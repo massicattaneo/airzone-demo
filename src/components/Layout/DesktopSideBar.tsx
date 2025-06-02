@@ -43,7 +43,7 @@ export function DesktopSidebar({ collapsed, setCollapsed }: Props) {
       aria-label="Sidebar Navigation"
       className={`bg-gray-800 text-white h-screen fixed top-0 left-0 transition-all duration-300 ${
         collapsed ? "w-16" : "w-64"
-      } hidden lg:flex flex-col`}
+      } hidden md:flex flex-col`}
     >
       <div className="bg-gray-200 flex items-center justify-between px-4 h-16 border-b border-gray-700">
         {!collapsed && (

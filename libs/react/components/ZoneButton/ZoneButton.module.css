@@ -1,0 +1,11 @@
+.wrapper {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+}
+.wrapper > svg {
+  width: 130px;
+  height: 130px;
+  fill: #ffffff;
+  opacity: 0.06;
+}

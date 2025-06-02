@@ -1,6 +1,5 @@
-import { HttpResponse, JsonBodyType, http } from "msw"
-import { newEmptyDb } from "@az/common/json-db"
-import { JsonDb } from "@az/common/json-db"
+import { HttpResponse, http } from "msw"
+import { JsonDb, newEmptyDb } from "@az/common/json-db"
 import { apiRouter } from "@az/common/server-procedures"
 import { trpcHttpAdapter } from "@az/common/trpc"
 
@@ -75,10 +74,7 @@ const mswTrpcHandlers = [
   http.all(`/api/**`, async info => {
     try {
       const res = await bigdataHandler(info)
-      if (res)
-        return HttpResponse.json({
-          result: { data: res.json },
-        } as JsonBodyType)
+      if (res) return HttpResponse.json(res.json)
       return
     } catch (error) {
       console.error("Error in apiHandler:", error)

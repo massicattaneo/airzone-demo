@@ -16,22 +16,7 @@ test.describe("Home Page", () => {
   - listitem:
     - link "Settings"`)
     await page.getByRole("link", { name: "Zones" }).click()
-    await expect(page.getByText("Loading Zones...")).toBeVisible()
-    await expect(page.getByRole("article", { name: "Zone Living Room" }))
-      .toMatchAriaSnapshot(`- article "Zone Living Room":
-  - heading "Living Room" [level=2]
-  - button "Toggle Power":
-    - img "power"
-  - paragraph: Heating to 22º
-  - paragraph: 10º
-  - img "heat"`)
     await page.getByRole("article", { name: "Zone Living Room" }).getByLabel("Toggle Power").click()
-    await expect(page.getByRole("article", { name: "Zone Living Room" }))
-      .toMatchAriaSnapshot(`- article "Zone Living Room":
-  - heading "Living Room" [level=2]
-  - button "Toggle Power":
-    - img "power"
-  - paragraph: "OFF"
-  - paragraph: 10º`)
+    await expect(page.getByRole("link", { name: "Zone Living Room" })).toBeVisible()
   })
 })

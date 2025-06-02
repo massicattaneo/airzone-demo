@@ -1,9 +1,42 @@
 export const stateStyles = {
-  off: "bg-white text-gray-400 shadow-[0_1px_3px_rgba(0,0,0,0.22),_0_1px_2px_rgba(0,0,0,0.34)]",
-  heating:
-    "bg-gradient-to-b from-[#EF694E] to-[#CF1E11] text-white shadow-[0_1px_3px_rgba(0,0,0,0.22),_0_1px_2px_rgba(0,0,0,0.34)]",
-  cooling:
-    "bg-gradient-to-b from-[#40C3F7] to-[#0B69A3] text-white shadow-[0_1px_3px_rgba(0,0,0,0.22),_0_1px_2px_rgba(0,0,0,0.34)]",
-  comfort:
-    "bg-gradient-to-b from-[#2DCC9A] to-[#01644F] text-white shadow-[0_1px_3px_rgba(0,0,0,0.22),_0_1px_2px_rgba(0,0,0,0.34)]",
+  unknown: {
+    boxShadow: "0 1px 3px 0 rgba(0,0,0,0.22), 0 1px 2px 0 rgba(0,0,0,0.34)",
+    backgroundImage: "radial-gradient(at 0% 100%, #FFFFFF 0%, #FFFFFF 100%)",
+    ambientTempColor: "#7B8794",
+    zoneNameColor: "#1F2933",
+    statusColor: "#9AA5B1",
+    text: () => "Unknown",
+  },
+  off: {
+    boxShadow: "0 1px 3px 0 rgba(0,0,0,0.22), 0 1px 2px 0 rgba(0,0,0,0.34)",
+    backgroundImage: "radial-gradient(at 0% 100%, #FFFFFF 0%, #FFFFFF 100%)",
+    ambientTempColor: "#7B8794",
+    zoneNameColor: "#1F2933",
+    statusColor: "#9AA5B1",
+    text: () => `OFF`,
+  },
+  heating: {
+    boxShadow: "0 1px 3px 0 rgba(0,0,0,0.22), 0 1px 2px 0 rgba(0,0,0,0.34)",
+    backgroundImage: "radial-gradient(at 0% 100%, #EF694E 0%, #CF1E11 100%)",
+    ambientTempColor: "",
+    zoneNameColor: "#FFFFFF",
+    statusColor: "#FFC3BD",
+    text: (targetTemp: number) => `Heating to ${targetTemp}º`,
+  },
+  cooling: {
+    boxShadow: "0 1px 3px 0 rgba(0,0,0,0.22), 0 1px 2px 0 rgba(0,0,0,0.34)",
+    backgroundImage: "radial-gradient(at 0% 100%, #40C3F7 0%, #0B69A3 100%)",
+    ambientTempColor: "",
+    zoneNameColor: "#FFFFFF",
+    statusColor: "##B3ECFF",
+    text: (targetTemp: number) => `Cooling to ${targetTemp}º`,
+  },
+  comfort: {
+    boxShadow: "0 1px 3px 0 rgba(0,0,0,0.22), 0 1px 2px 0 rgba(0,0,0,0.34)",
+    backgroundImage: "radial-gradient(at 3% 99%, #2DCC9A 0%, #01644F 100%)",
+    ambientTempColor: "",
+    zoneNameColor: "#FFFFFF",
+    statusColor: "##C6F7E5",
+    text: () => "Success",
+  },
 }

@@ -8,7 +8,7 @@ export function MobileBottomNav() {
     <nav
       role="navigation"
       aria-label="Bottom Navigation"
-      className="fixed bottom-0 inset-x-0 bg-white border-t shadow-md lg:hidden"
+      className="fixed bottom-0 inset-x-0 bg-white border-t shadow-md md:hidden"
     >
       <ul className="flex justify-around items-center h-16 text-gray-700">
         <li className="flex flex-col items-center">

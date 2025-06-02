@@ -5,46 +5,46 @@ export const newEmptyDb = () => {
     zones: new Array<{
       id: string
       zoneName: string
-      ambientTemp: number
-      targetTemp: number
       isOn: boolean
+      deviceId: string
+      targetTemp: number
     }>(),
   }
   db.zones.push(
     {
       id: "zone-1",
       zoneName: "Living Room",
-      ambientTemp: 10,
-      targetTemp: 22,
       isOn: true,
+      deviceId: "device-1",
+      targetTemp: 22,
     },
     {
       id: "zone-2",
       zoneName: "Bedroom",
-      ambientTemp: 19,
-      targetTemp: 24,
       isOn: true,
+      deviceId: "device-2",
+      targetTemp: 20,
     },
     {
       id: "zone-3",
       zoneName: "Kitchen",
-      ambientTemp: 23,
-      targetTemp: 22,
+      deviceId: "device-3",
       isOn: true,
+      targetTemp: 21,
     },
     {
       id: "zone-4",
       zoneName: "Office",
-      ambientTemp: 21,
-      targetTemp: 21,
       isOn: true,
+      deviceId: "device-4",
+      targetTemp: 23,
     },
     {
       id: "zone-5",
       zoneName: "Guest Room",
-      ambientTemp: 18,
-      targetTemp: 22,
       isOn: false,
+      deviceId: "device-5",
+      targetTemp: 19,
     },
   )
   return db

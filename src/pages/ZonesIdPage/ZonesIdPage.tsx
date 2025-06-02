@@ -2,12 +2,13 @@ import { generatePath, useNavigate, useParams } from "react-router-dom"
 import { ROUTES } from "src/utils/routes"
 import { BackButton } from "@az/assets"
 import { ZoneButton } from "@az/react/components"
-import { clientApi, useToggleZone } from "@az/react/tanstack-api"
+import { clientApi, useToggleZone, useZonesTemperatures } from "@az/react/tanstack-api"
 
 export const ZonesIdPage = () => {
   const params = useParams()
   const navigate = useNavigate()
   const { data: zone, isLoading, error } = clientApi.zone.id.useQuery({ id: params.id ?? "" })
+  const { data: ambientTemps } = useZonesTemperatures(zone?.deviceId ? [zone.deviceId] : undefined)
   const { mutateAsync: toggleZone } = useToggleZone({})
 
   if (error) {
@@ -20,7 +21,7 @@ export const ZonesIdPage = () => {
 
   return (
     <div>
-      <header className="flex items-center gap-2 mb-4">
+      <header className="flex items-center gap-4 mb-4">
         <button
           onClick={() => navigate(-1)}
           aria-label="Go back"
@@ -33,11 +34,13 @@ export const ZonesIdPage = () => {
 
       <hr className="mb-4" />
 
-      <section className="flex flex-wrap gap-8 justify-center">
-        {zone && (
+      <section className="">
+        {zone && ambientTemps && (
           <ZoneButton
-            {...zone}
-            size="large"
+            zoneName={zone.zoneName}
+            ambientTemp={ambientTemps[zone.deviceId]}
+            targetTemp={zone.targetTemp}
+            isOn={zone.isOn}
             to={generatePath(ROUTES.ZONE_ID, zone)}
             onToggle={async () => toggleZone({ zoneId: zone.id })}
           />

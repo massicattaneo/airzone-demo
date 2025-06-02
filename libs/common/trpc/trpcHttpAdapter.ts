@@ -80,10 +80,10 @@ export function trpcHttpAdapter<
       })
       if (mockResponse) {
         const res = mockResponse instanceof Function ? mockResponse(rawInput, json) : mockResponse
-        const response = { status: res.status ?? 200, json: res.json }
+        const response = { status: res.status ?? 200, json: { result: { data: res.json } } }
         return onFulfill?.(params, response) ?? res
       }
-      const res = { status: 200, json }
+      const res = { status: 200, json: { result: { data: json } } }
       return onFulfill?.(params, res) ?? res
     }
     return onContinue?.(params)

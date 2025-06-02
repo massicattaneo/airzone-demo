@@ -1,3 +1,4 @@
+import Unfonts from "unplugin-fonts/vite"
 import { defineConfig } from "vite"
 import { createHtmlPlugin } from "vite-plugin-html"
 import svgr from "vite-plugin-svgr"
@@ -22,6 +23,17 @@ export default defineConfig(async () => ({
     createHtmlPlugin({ inject: { data: { base } } }),
     tsconfigPaths({
       root: "./",
+    }),
+    Unfonts({
+      google: {
+        preconnect: true,
+        families: [
+          {
+            name: "Roboto",
+            styles: "ital,wght@0,100..900;1,100..900",
+          },
+        ],
+      },
     }),
   ],
 

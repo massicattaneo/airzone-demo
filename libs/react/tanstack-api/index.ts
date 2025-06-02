@@ -22,3 +22,15 @@ export const useToggleZone = (inputParams = {}) => {
     },
   })
 }
+
+export const useZonesTemperatures = (deviceIds: Array<string> | undefined) => {
+  return clientApi.device.temperature.useQuery(
+    {
+      deviceIds: deviceIds || [],
+    },
+    {
+      refetchInterval: 5_000,
+      enabled: !!deviceIds,
+    },
+  )
+}
