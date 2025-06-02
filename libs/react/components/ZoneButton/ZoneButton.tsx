@@ -28,8 +28,15 @@ const ZoneButton = ({ zoneName, ambientTemp, targetTemp, isOn, to, onToggle }: Z
     [isOn, ambientTemp, targetTemp],
   )
 
-  const { boxShadow, backgroundImage, statusColor, zoneNameColor, ambientTempColor, text } =
-    stateStyles[state]
+  const {
+    boxShadow,
+    backgroundImage,
+    statusColor,
+    zoneNameColor,
+    ambientTempColor,
+    buttonColor,
+    text,
+  } = stateStyles[state]
 
   return (
     <Link to={to} className="no-underline">
@@ -38,17 +45,16 @@ const ZoneButton = ({ zoneName, ambientTemp, targetTemp, isOn, to, onToggle }: Z
         aria-label={`Zone ${zoneName}`}
         style={{ padding: "17px 13px", boxShadow }}
         className={`overflow-hidden flex flex-col grow-1 relative min-w-[130px] h-[130px] rounded-[10px] transition-all duration-700 ease-in-out`}
-        initial={{ opacity: 0, boxShadow, backgroundImage }}
+        initial={{ boxShadow, backgroundImage }}
         animate={{
-          opacity: 1,
           boxShadow,
           backgroundImage,
         }}
-        exit={{ opacity: 0, boxShadow, backgroundImage }}
+        exit={{ boxShadow, backgroundImage }}
         transition={{ duration: 0.5 }}
       >
         <button
-          className="hover:bg-black/7 flex items-center justify-center cursor-pointer w-[55px] h-[55px] absolute top-0 right-0 opacity-40 hover:opacity-100 transition-opacity duration-200"
+          className={`hover:bg-black/7 flex items-center justify-center cursor-pointer w-[55px] h-[55px] absolute top-0 right-0 ${buttonColor}`}
           onClick={ev => {
             ev.preventDefault()
             ev.stopPropagation()
@@ -59,14 +65,14 @@ const ZoneButton = ({ zoneName, ambientTemp, targetTemp, isOn, to, onToggle }: Z
           <PowerIcon />
         </button>
         <div className="flex grow justify-between items-center h-[24px] mb-2">
-          <h2 className={`text-[33px] font-medium text-[${ambientTempColor}]`}>
+          <h2 className={`text-[33px] font-medium ${ambientTempColor}`}>
             {ambientTemp ? `${ambientTemp}º` : "-"}
           </h2>
         </div>
 
         <div className="flex flex-col items-start text-[16px] font-medium">
-          <p className={`leading-tight truncate text-[${zoneNameColor}]`}>{zoneName}</p>
-          <p className={`text-[13px] truncate text-[${statusColor}] font-medium mt-1`}>
+          <p className={`leading-tight truncate ${zoneNameColor}`}>{zoneName}</p>
+          <p className={`text-[13px] truncate ${statusColor} font-medium mt-1`}>
             {text(targetTemp)}
           </p>
         </div>
