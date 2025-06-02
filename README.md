@@ -2,13 +2,29 @@
 
 Demo: [https://massicattaneo.github.io/airzone-demo/](https://massicattaneo.github.io/airzone-demo/)
 
-**NOTE ON THE PROJECT:**
+This repository contains the technical test implementation for the **Zone Button** component. It simulates the behavior of climate control zones within a smart home system, as part of the **Airzone Cloud** solution.
 
-This implementation focuses on code architecture, scalability, and folder structure to ensure long-term maintainability and reusability of the component across different contexts.
+## 🧱 Tech Stack
 
-⚠️ The current visual styling does not fully match the provided design specifications. This was a conscious decision to prioritize structure, state handling, and deliverability within the scope of this test.
+- **UI Framework**: React + Tailwind CSS
+- **Mock Backend**: tRPC + MSW
+- **Cross-Platform App Container**: [Tauri](https://tauri.app/)
+- **Typing**: TypeScript
 
-🎨 I can easily adapt the component to match the design visuals precisely upon request. The groundwork is in place to support styling updates with minimal effort.
+The project is structured to support scalability and component reuse, following clean architecture principles and separation of concerns.
+
+## 📁 Project Structure
+
+```text
+.
+├── .github/workflows    # CI configuration with GitHub Actions
+├── libs/                # Shared libraries/components and logic
+├── public/              # Static public assets (e.g. images, icons)
+├── src/                 # Main React frontend application
+├── src-tauri/           # Configuration and setup for Tauri app
+├── README.md            # Project documentation
+└── tsconfig.json        # TypeScript configuration
+```
 
 ## Project Setup
 
@@ -79,3 +95,7 @@ This implementation focuses on code architecture, scalability, and folder struct
 ### Build
 
 - Run `yarn tauri android build`
+
+```
+
+```
